@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function Home() {
   return (
     <div className="min-h-screen">
@@ -6,18 +8,20 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div className="flex items-center">
-              <a href="/" className="flex items-center">
+              <Link href="/" className="flex items-center">
                 <img src="/logo.svg" alt="Falcon Labs Logo" className="h-10 w-auto mr-3" />
                 <h1 className="text-3xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
                   Falcon Labs
                 </h1>
-              </a>
+              </Link>
             </div>
             <nav className="flex space-x-8">
-              <a href="/" className="text-slate-200 hover:text-amber-400 transition-colors">Home</a>
-              <a href="/work" className="text-slate-200 hover:text-amber-400 transition-colors">Work</a>
-              <a href="/about" className="text-slate-200 hover:text-amber-400 transition-colors">About</a>
-              <a href="/contact" className="text-slate-200 hover:text-amber-400 transition-colors">Contact Us</a>
+              <Link href="/" className="text-slate-200 hover:text-amber-400 transition-colors">Home</Link>
+              <Link href="/work" className="text-slate-200 hover:text-amber-400 transition-colors">Work</Link>
+              <Link href="/pricing" className="text-slate-200 hover:text-amber-400 transition-colors">Pricing</Link>
+              <Link href="/testimonials" className="text-slate-200 hover:text-amber-400 transition-colors">Testimonials</Link>
+              <Link href="/about" className="text-slate-200 hover:text-amber-400 transition-colors">About</Link>
+              <Link href="/contact" className="text-slate-200 hover:text-amber-400 transition-colors">Contact Us</Link>
             </nav>
           </div>
         </div>

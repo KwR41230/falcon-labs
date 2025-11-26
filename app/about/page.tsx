@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function About() {
   return (
     <div className="min-h-screen">
@@ -6,18 +8,20 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div className="flex items-center">
-              <a href="/" className="flex items-center">
+              <Link href="/" className="flex items-center">
                 <img src="/logo.svg" alt="Falcon Labs Logo" className="h-10 w-auto mr-3" />
                 <h1 className="text-3xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
                   Falcon Labs
                 </h1>
-              </a>
+              </Link>
             </div>
             <nav className="flex space-x-8">
-              <a href="/" className="text-slate-200 hover:text-amber-400 transition-colors">Home</a>
-              <a href="/work" className="text-slate-200 hover:text-amber-400 transition-colors">Work</a>
-              <a href="/about" className="text-slate-200 hover:text-amber-400 transition-colors">About</a>
-              <a href="/contact" className="text-slate-200 hover:text-amber-400 transition-colors">Contact Us</a>
+              <Link href="/" className="text-slate-200 hover:text-amber-400 transition-colors">Home</Link>
+              <Link href="/work" className="text-slate-200 hover:text-amber-400 transition-colors">Work</Link>
+              <Link href="/pricing" className="text-slate-200 hover:text-amber-400 transition-colors">Pricing</Link>
+              <Link href="/testimonials" className="text-slate-200 hover:text-amber-400 transition-colors">Testimonials</Link>
+              <Link href="/about" className="text-slate-200 hover:text-amber-400 transition-colors">About</Link>
+              <Link href="/contact" className="text-slate-200 hover:text-amber-400 transition-colors">Contact Us</Link>
             </nav>
           </div>
         </div>
@@ -51,7 +55,7 @@ export default function About() {
             <div className="space-y-6">
               <h3 className="text-3xl font-bold text-amber-400">Kevin Rasmussen</h3>
               <p className="text-slate-300 text-lg leading-relaxed">
-                With over 10 years of experience in software development, I've built a career
+                With over 10 years of experience in software development, I&apos;ve built a career
                 founded on continuous learning and technological innovation. My journey spans
                 network DevOps, Linux programming, and comprehensive coding expertise that
                 has evolved into creating sophisticated web applications.
@@ -195,7 +199,7 @@ export default function About() {
             <p className="text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
               To leverage my decade-plus experience in software engineering to create innovative,
               reliable, and scalable web solutions that empower businesses to succeed in the digital age.
-              I believe in the power of technology to transform ideas into reality, and I'm passionate
+              I believe in the power of technology to transform ideas into reality, and I&apos;m passionate
               about helping others bring their visions to life through exceptional software craftsmanship.
             </p>
           </div>
@@ -207,7 +211,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h3 className="text-3xl font-bold mb-4 text-slate-900">Ready to Bring Your Ideas to Life?</h3>
           <p className="text-xl mb-8 text-slate-800">
-            Let's discuss how we can collaborate on your next project.
+            Let&apos;s discuss how we can collaborate on your next project.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="/work" className="bg-slate-900 text-amber-400 px-8 py-3 rounded-lg font-semibold hover:bg-slate-800 transition-colors">

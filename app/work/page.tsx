@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function Work() {
   return (
     <div className="min-h-screen">
@@ -6,18 +8,20 @@ export default function Work() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div className="flex items-center">
-              <a href="/" className="flex items-center">
+              <Link href="/" className="flex items-center">
                 <img src="/logo.svg" alt="Falcon Labs Logo" className="h-10 w-auto mr-3" />
                 <h1 className="text-3xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
                   Falcon Labs
                 </h1>
-              </a>
+              </Link>
             </div>
             <nav className="flex space-x-8">
-              <a href="/" className="text-slate-200 hover:text-amber-400 transition-colors">Home</a>
-              <a href="/work" className="text-slate-200 hover:text-amber-400 transition-colors">Work</a>
-              <a href="/about" className="text-slate-200 hover:text-amber-400 transition-colors">About</a>
-              <a href="/contact" className="text-slate-200 hover:text-amber-400 transition-colors">Contact Us</a>
+              <Link href="/" className="text-slate-200 hover:text-amber-400 transition-colors">Home</Link>
+              <Link href="/work" className="text-slate-200 hover:text-amber-400 transition-colors">Work</Link>
+              <Link href="/pricing" className="text-slate-200 hover:text-amber-400 transition-colors">Pricing</Link>
+              <Link href="/testimonials" className="text-slate-200 hover:text-amber-400 transition-colors">Testimonials</Link>
+              <Link href="/about" className="text-slate-200 hover:text-amber-400 transition-colors">About</Link>
+              <Link href="/contact" className="text-slate-200 hover:text-amber-400 transition-colors">Contact Us</Link>
             </nav>
           </div>
         </div>
@@ -28,7 +32,7 @@ export default function Work() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center mb-12 text-amber-400">Our Work</h2>
           <p className="text-xl text-center mb-16 text-slate-300 max-w-3xl mx-auto">
-            Explore some of our recent web development projects. Each site is crafted with modern technologies and tailored to meet our clients' unique needs.
+            Explore some of our recent web development projects. Each site is crafted with modern technologies and tailored to meet our clients&apos; unique needs.
           </p>
 
           {/* Project Grid */}
@@ -101,7 +105,7 @@ export default function Work() {
               <div className="p-6">
                 <h3 className="text-2xl font-bold mb-3 text-slate-500">Your Project?</h3>
                 <p className="text-slate-500 mb-4">
-                  Ready to showcase your business online? Let's create something amazing together.
+                  Ready to showcase your business online? Let&apos;s create something amazing together.
                 </p>
                 <a
                   href="/contact"
@@ -120,7 +124,7 @@ export default function Work() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h3 className="text-3xl font-bold mb-4 text-slate-900">Ready to Join Our Portfolio?</h3>
           <p className="text-xl mb-8 text-slate-800">
-            Let's discuss your web development project and bring your vision to life.
+            Let&apos;s discuss your web development project and bring your vision to life.
           </p>
           <a href="/contact" className="bg-slate-900 text-amber-400 px-8 py-3 rounded-lg font-semibold hover:bg-slate-800 transition-colors">
             Start Your Project
