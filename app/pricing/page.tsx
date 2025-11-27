@@ -469,30 +469,117 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-20 bg-gray-800">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-white mb-12">Frequently Asked Questions</h2>
+      {/* Payment Terms */}
+      <section className="py-20 bg-slate-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Transparent <span className="text-amber-400">Payment Terms</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              We use industry-standard milestone-based payment structures to ensure fair and transparent billing for all projects.
+            </p>
+          </div>
 
-          <div className="space-y-6">
-            <div className="bg-gray-700 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-amber-400 mb-3">How long does it take to complete a website?</h3>
-              <p className="text-gray-300">Basic websites typically take 2-4 weeks, professional websites 4-8 weeks, and premium projects 8-16 weeks or more, depending on complexity and custom features.</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            {/* Payment Structure */}
+            <div className="bg-gray-800 rounded-lg p-8 border border-gray-700">
+              <h3 className="text-2xl font-bold text-white mb-6">Payment Structure</h3>
+              <div className="space-y-6">
+                <div className="border-l-4 border-amber-400 pl-4">
+                  <h4 className="text-lg font-semibold text-amber-400 mb-2">Basic Package ($1,500 - $3,000)</h4>
+                  <ul className="text-gray-300 space-y-1">
+                    <li>• 50% upfront upon project start</li>
+                    <li>• 50% upon project completion</li>
+                  </ul>
+                </div>
+                <div className="border-l-4 border-amber-400 pl-4">
+                  <h4 className="text-lg font-semibold text-amber-400 mb-2">Professional Package ($3,000 - $8,000)</h4>
+                  <ul className="text-gray-300 space-y-1">
+                    <li>• 30% upfront for planning & design</li>
+                    <li>• 40% at development midpoint</li>
+                    <li>• 30% upon final delivery</li>
+                  </ul>
+                </div>
+                <div className="border-l-4 border-amber-400 pl-4">
+                  <h4 className="text-lg font-semibold text-amber-400 mb-2">Premium Package ($8,000 - $25,000+)</h4>
+                  <ul className="text-gray-300 space-y-1">
+                    <li>• 20% upfront for initial planning</li>
+                    <li>• Monthly milestones (15-20% each)</li>
+                    <li>• 20% upon final project completion</li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
-            <div className="bg-gray-700 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-amber-400 mb-3">Do you provide ongoing maintenance?</h3>
-              <p className="text-gray-300">Yes! We offer flexible maintenance plans starting at just $99/month for basic upkeep, or $200/month for comprehensive professional support. Our maintenance includes security updates, performance monitoring, content changes, and technical support.</p>
+            {/* Why This Structure */}
+            <div className="bg-gray-800 rounded-lg p-8 border border-gray-700">
+              <h3 className="text-2xl font-bold text-white mb-6">Why Milestone Payments?</h3>
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <div>
+                    <h4 className="font-semibold text-white">Risk Management</h4>
+                    <p className="text-gray-300 text-sm">Both parties are protected with approved deliverables before payment release.</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <div>
+                    <h4 className="font-semibold text-white">Cash Flow Balance</h4>
+                    <p className="text-gray-300 text-sm">Reasonable upfront investment with progress-based payments.</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <div>
+                    <h4 className="font-semibold text-white">Quality Assurance</h4>
+                    <p className="text-gray-300 text-sm">Each milestone includes review and approval before proceeding.</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <div>
+                    <h4 className="font-semibold text-white">Industry Standard</h4>
+                    <p className="text-gray-300 text-sm">Used by 70%+ of professional web development agencies.</p>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
 
-            <div className="bg-gray-700 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-amber-400 mb-3">Can I upgrade my package later?</h3>
-              <p className="text-gray-300">Absolutely! Many clients start with a basic package and upgrade as their business grows. We&apos;ll work with you to seamlessly add features and functionality.</p>
-            </div>
+          {/* FAQ Section */}
+          <div className="bg-gray-800 rounded-lg p-8 border border-gray-700">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">Payment FAQ</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h4 className="font-semibold text-amber-400 mb-2">When are payments due?</h4>
+                <p className="text-gray-300 text-sm mb-4">Invoices are sent upon milestone completion. Payment is due within 30 days of invoice receipt.</p>
 
-            <div className="bg-gray-700 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-amber-400 mb-3">What if I need something not listed?</h3>
-              <p className="text-gray-300">We can customize any package to meet your specific needs. During our free consultation, we&apos;ll discuss your requirements and provide a tailored quote.</p>
+                <h4 className="font-semibold text-amber-400 mb-2">What if I need to change scope?</h4>
+                <p className="text-gray-300 text-sm mb-4">Scope changes are handled through change orders with adjusted payment schedules.</p>
+
+                <h4 className="font-semibold text-amber-400 mb-2">Do you offer financing?</h4>
+                <p className="text-gray-300 text-sm">We don't offer direct financing but can discuss payment plans for qualifying projects.</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-amber-400 mb-2">What about refunds?</h4>
+                <p className="text-gray-300 text-sm mb-4">Deposits are non-refundable. Work completed is billed at fair market rates.</p>
+
+                <h4 className="font-semibold text-amber-400 mb-2">Late payment terms?</h4>
+                <p className="text-gray-300 text-sm mb-4">Late payments accrue 1.5% interest per month. Services may be paused after 60 days.</p>
+
+                <h4 className="font-semibold text-amber-400 mb-2">Accepted payment methods?</h4>
+                <p className="text-gray-300 text-sm">Wire transfer, ACH, check, and major credit cards accepted.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -515,25 +602,6 @@ export default function Pricing() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 border-t border-gray-800 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <Link href="/" className="text-2xl font-bold text-amber-400 hover:text-amber-300 transition-colors">
-              Falcon Labs
-            </Link>
-            <p className="text-gray-400 mt-4">
-              Professional web development services for modern businesses.
-            </p>
-            <div className="mt-6">
-              <Link href="/contact" className="text-amber-400 hover:text-amber-300 transition-colors">
-                hello@falconlabs.tech
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

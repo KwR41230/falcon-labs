@@ -109,7 +109,7 @@ export default function Work() {
                 </p>
                 <a
                   href="/contact"
-                  className="inline-block bg-slate-700 text-slate-500 px-4 py-2 rounded-lg font-semibold cursor-not-allowed"
+                  className="inline-block bg-gradient-to-r from-amber-500 to-orange-600 text-slate-900 px-4 py-2 rounded-lg font-semibold hover:from-amber-600 hover:to-orange-700 transition-colors"
                 >
                   Get Started
                 </a>

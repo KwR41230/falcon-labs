@@ -40,6 +40,10 @@ export async function POST(request: NextRequest) {
         email: MAILER_SEND_FROM_EMAIL,
         name: 'Falcon Labs Contact Form'
       },
+      reply_to: {
+        email: email,
+        name: name
+      },
       to: [
         {
           email: MAILER_SEND_TO_EMAIL,
@@ -99,7 +103,16 @@ This message was sent from the Falcon Labs contact form.
       )
     }
 
-    const result = await response.json()
+    // MailerSend returns 202 with empty body for successful sends
+    let result
+    try {
+      const responseText = await response.text()
+      result = responseText ? JSON.parse(responseText) : { success: true }
+    } catch (parseError) {
+      // If parsing fails, assume success since we got a 2xx response
+      result = { success: true, messageId: response.headers.get('x-message-id') }
+    }
+
     console.log('Email sent successfully:', result)
 
     return NextResponse.json(
