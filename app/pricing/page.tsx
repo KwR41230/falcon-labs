@@ -568,7 +568,7 @@ export default function Pricing() {
                 <p className="text-gray-300 text-sm mb-4">Scope changes are handled through change orders with adjusted payment schedules.</p>
 
                 <h4 className="font-semibold text-amber-400 mb-2">Do you offer financing?</h4>
-                <p className="text-gray-300 text-sm">We don't offer direct financing but can discuss payment plans for qualifying projects.</p>
+                <p className="text-gray-300 text-sm">We don&apos;t offer direct financing but can discuss payment plans for qualifying projects.</p>
               </div>
               <div>
                 <h4 className="font-semibold text-amber-400 mb-2">What about refunds?</h4>
