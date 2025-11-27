@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import { useState } from 'react'
 
 export const metadata: Metadata = {
   title: 'Client Testimonials | Falcon Labs',
@@ -52,7 +53,7 @@ export default function TestimonialsPage() {
                 </h1>
               </Link>
             </div>
-            <nav className="flex space-x-8">
+            <nav className="hidden md:flex space-x-8">
               <Link href="/" className="text-slate-200 hover:text-amber-400 transition-colors">Home</Link>
               <Link href="/work" className="text-slate-200 hover:text-amber-400 transition-colors">Work</Link>
               <Link href="/pricing" className="text-slate-200 hover:text-amber-400 transition-colors">Pricing</Link>
