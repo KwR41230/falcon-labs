@@ -35,6 +35,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Kevin Rasmussen' }],
   creator: 'Kevin Rasmussen',
   publisher: 'Falcon Labs',
+  metadataBase: new URL('https://falconlabs.dev'),
   openGraph: {
     title: 'Falcon Labs - Custom Web Development Services & Full Stack Solutions',
     description: 'Professional custom web development services with 10+ years experience. Full stack development, e-commerce solutions, and reliable hosting.',
@@ -42,10 +43,11 @@ export const metadata: Metadata = {
     siteName: 'Falcon Labs',
     images: [
       {
-        url: '/founder-photo.jpg',
-        width: 800,
-        height: 600,
-        alt: 'Kevin Rasmussen - Founder of Falcon Labs',
+        url: '/falconlab-screenshot.png',
+        width: 1200,
+        height: 630,
+        alt: 'Falcon Labs - Custom Web Development Services Homepage',
+        type: 'image/png',
       },
     ],
     locale: 'en_US',
@@ -55,7 +57,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Falcon Labs - Custom Web Development Services & Full Stack Solutions',
     description: 'Professional custom web development services with 10+ years experience. Full stack development, e-commerce solutions, and reliable hosting.',
-    images: ['/founder-photo.jpg'],
+    images: ['/falconlab-screenshot.png'],
   },
   robots: {
     index: true,
