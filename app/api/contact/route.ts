@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(request: NextRequest) {
   try {
-    const { name, email, selectedPackage, message } = await request.json()
+    const { name, email, phone, selectedPackage, message } = await request.json()
 
     // Validate required fields
     if (!name || !email || !message) {
@@ -57,6 +57,7 @@ export async function POST(request: NextRequest) {
           <div style="background: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <p><strong>Name:</strong> ${name}</p>
             <p><strong>Email:</strong> ${email}</p>
+            ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}
             ${selectedPackage ? `<p><strong>Package Interest:</strong> ${selectedPackage}</p>` : ''}
             <p><strong>Message:</strong></p>
             <div style="background: white; padding: 15px; border-radius: 4px; border-left: 4px solid #f59e0b;">
@@ -73,6 +74,7 @@ New Contact Form Submission
 
 Name: ${name}
 Email: ${email}
+${phone ? `Phone: ${phone}` : ''}
 ${selectedPackage ? `Package Interest: ${selectedPackage}` : ''}
 
 Message:

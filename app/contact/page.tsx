@@ -6,12 +6,45 @@ import Link from 'next/link'
 export default function Contact() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
   const [selectedPackage, setSelectedPackage] = useState('')
   const [message, setMessage] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
+
+  const faqs = [
+    {
+      question: "How long does it take to build a website?",
+      answer: "Timeline depends on complexity. A simple business website takes 2-4 weeks, while complex e-commerce sites with custom features can take 6-12 weeks. I'll provide a detailed timeline during our consultation."
+    },
+    {
+      question: "Do you provide ongoing maintenance and support?",
+      answer: "Yes! I offer ongoing maintenance packages to keep your website secure, updated, and performing optimally. This includes security updates, performance monitoring, and technical support."
+    },
+    {
+      question: "What's included in your web development services?",
+      answer: "Everything from initial consultation and design to development, testing, deployment, and training. I handle hosting setup, domain configuration, SEO optimization, and provide comprehensive documentation."
+    },
+    {
+      question: "Can you work with my existing website or brand?",
+      answer: "Absolutely! I can redesign existing websites, integrate with current branding, or work within your established design guidelines. I'm flexible and adapt to your needs."
+    },
+    {
+      question: "How much do your services cost?",
+      answer: "Pricing varies based on project scope and complexity. I offer transparent pricing with no hidden fees. Contact me for a free consultation and custom quote tailored to your specific needs."
+    },
+    {
+      question: "Do you work with clients outside of my area?",
+      answer: "Yes! I work with clients worldwide. All communication and project management happens remotely, with regular video calls and progress updates to keep you involved throughout the process."
+    }
+  ]
+
+  const toggleFaq = (index: number) => {
+    setExpandedFaq(expandedFaq === index ? null : index)
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -25,7 +58,7 @@ export default function Contact() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, selectedPackage, message }),
+        body: JSON.stringify({ name, email, phone, selectedPackage, message }),
       })
 
       const data = await response.json()
@@ -35,6 +68,7 @@ export default function Contact() {
         // Reset form
         setName('')
         setEmail('')
+        setPhone('')
         setSelectedPackage('')
         setMessage('')
       } else {
@@ -278,7 +312,7 @@ export default function Contact() {
                         </svg>
                         <span className="text-green-400 font-medium">Message sent successfully!</span>
                       </div>
-                      <p className="text-green-300 mt-1">Thank you for your message. We&apos;ll get back to you within 24 hours.</p>
+                      <p className="text-green-300 mt-1">Thank you for your message! We&apos;ll get back to you within 24 hours. If you don&apos;t hear from us, please check your spam/junk folder as our emails sometimes land there.</p>
                     </div>
                   )}
 
@@ -316,6 +350,18 @@ export default function Contact() {
                       onChange={(e) => setEmail(e.target.value)}
                       required
                       disabled={isSubmitting}
+                      className="w-full px-4 py-3 border border-slate-600 rounded-lg bg-slate-700 text-slate-100 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
+                    />
+                  </div>
+                  <div className="mb-6">
+                    <label htmlFor="phone" className="block text-sm font-medium text-slate-300 mb-2">Phone Number (Optional)</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      disabled={isSubmitting}
+                      placeholder="(555) 123-4567"
                       className="w-full px-4 py-3 border border-slate-600 rounded-lg bg-slate-700 text-slate-100 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
                     />
                   </div>
@@ -424,23 +470,36 @@ export default function Contact() {
       <section className="py-16 bg-slate-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12 text-amber-400">Frequently Asked Questions</h2>
-          <div className="space-y-6">
-            <div className="bg-slate-700 rounded-lg p-6 border border-slate-600">
-              <h3 className="text-lg font-semibold text-slate-100 mb-3">How long does it take to build a website?</h3>
-              <p className="text-slate-300">Timeline depends on complexity. A simple business website takes 2-4 weeks, while complex e-commerce sites with custom features can take 6-12 weeks. I&apos;ll provide a detailed timeline during our consultation.</p>
-            </div>
-            <div className="bg-slate-700 rounded-lg p-6 border border-slate-600">
-              <h3 className="text-lg font-semibold text-slate-100 mb-3">Do you provide ongoing maintenance and support?</h3>
-              <p className="text-slate-300">Yes! I offer ongoing maintenance packages to keep your website secure, updated, and performing optimally. This includes security updates, performance monitoring, and technical support.</p>
-            </div>
-            <div className="bg-slate-700 rounded-lg p-6 border border-slate-600">
-              <h3 className="text-lg font-semibold text-slate-100 mb-3">What&apos;s included in your web development services?</h3>
-              <p className="text-slate-300">Everything from initial consultation and design to development, testing, deployment, and training. I handle hosting setup, domain configuration, SEO optimization, and provide comprehensive documentation.</p>
-            </div>
-            <div className="bg-slate-700 rounded-lg p-6 border border-slate-600">
-              <h3 className="text-lg font-semibold text-slate-100 mb-3">Can you work with my existing website or brand?</h3>
-              <p className="text-slate-300">Absolutely! I can redesign existing websites, integrate with current branding, or work within your established design guidelines. I&apos;m flexible and adapt to your needs.</p>
-            </div>
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div key={index} className="bg-slate-700 rounded-lg border border-slate-600 overflow-hidden">
+                <button
+                  onClick={() => toggleFaq(index)}
+                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-inset"
+                >
+                  <h3 className="text-lg font-semibold text-slate-100">{faq.question}</h3>
+                  <svg
+                    className={`w-5 h-5 text-amber-400 transform transition-transform duration-200 ${
+                      expandedFaq === index ? 'rotate-180' : ''
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    expandedFaq === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <div className="px-6 pb-4">
+                    <p className="text-slate-300 leading-relaxed">{faq.answer}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
