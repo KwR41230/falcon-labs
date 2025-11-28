@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { ReactNode } from 'react'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -35,11 +36,11 @@ export const metadata: Metadata = {
   authors: [{ name: 'Kevin Rasmussen' }],
   creator: 'Kevin Rasmussen',
   publisher: 'Falcon Labs',
-  metadataBase: new URL('https://falconlabs.dev'),
+  metadataBase: new URL('https://falconlabs.tech'),
   openGraph: {
     title: 'Falcon Labs - Custom Web Development Services & Full Stack Solutions',
     description: 'Professional custom web development services with 10+ years experience. Full stack development, e-commerce solutions, and reliable hosting.',
-    url: 'https://falconlabs.dev',
+    url: 'https://falconlabs.tech',
     siteName: 'Falcon Labs',
     images: [
       {
@@ -75,7 +76,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: ReactNode
 }) {
   return (
     <html lang="en">
@@ -120,6 +121,13 @@ export default function RootLayout({
             })
           }}
         />
+        {/* Structured Data for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
               "name": "Falcon Labs",
               "url": "https://falconlabs.tech",
               "logo": "https://falconlabs.tech/logo.svg",
@@ -128,17 +136,14 @@ export default function RootLayout({
                 "@type": "Person",
                 "name": "Kevin Rasmussen"
               },
-              "serviceType": ["Web Development", "Full Stack Development", "E-commerce Development", "Web Hosting"],
-              "areaServed": "Global",
               "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "+1-555-123-4567",
+                "telephone": "+1-856-693-3979",
                 "contactType": "Customer Service",
                 "availableLanguage": "English"
               },
               "sameAs": [
-                "https://twitter.com/falconlabs",
-                "https://linkedin.com/company/falconlabs"
+                "https://github.com/kwr41230"
               ]
             })
           }}
