@@ -116,7 +116,8 @@ export default function RootLayout({
               "currenciesAccepted": "USD",
               "sameAs": [
                 "https://www.linkedin.com/in/kevin-rasmussen-a09a8a5b/", // Replace with your LinkedIn
-                "https://github.com/kwr41230" // Replace with your GitHub
+                "https://github.com/kwr41230", // Replace with your GitHub
+                "https://www.facebook.com/TheFalconLabs/" // Your Facebook business page
               ]
             })
           }}

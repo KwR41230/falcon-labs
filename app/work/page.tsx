@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
+import SocialShare from '../../components/SocialShare'
 
 export default function Work() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -151,6 +152,11 @@ export default function Work() {
                 >
                   View Live Site →
                 </a>
+                <SocialShare
+                  title="Check out our web development portfolio at Falcon Labs"
+                  description="Professional custom web development services with modern technologies - React, Next.js, TypeScript, and more"
+                  url="https://falconlabs.tech/work"
+                />
               </div>
             </div>
 
