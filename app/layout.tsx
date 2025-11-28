@@ -85,16 +85,44 @@ export default function RootLayout({
         <link rel="icon" href="/logo.svg" type="image/svg+xml" />
         <link rel="icon" href="/logo.svg" sizes="any" />
         <link rel="apple-touch-icon" href="/logo.svg" />
-        {/* Structured Data for SEO */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
+              "@type": "LocalBusiness",
               "name": "Falcon Labs",
-              "url": "https://falconlabs.dev",
-              "logo": "https://falconlabs.dev/logo.svg",
+              "description": "Professional custom web development services with 10+ years experience. Full stack development, e-commerce solutions, and reliable hosting.",
+              "url": "https://falconlabs.tech",
+              "telephone": "+1-856-693-3979", // Replace with your phone
+              "email": "kevin@falconlabs.tech",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "7408 Albany Dr", // Replace with your address
+                "addressLocality": "Amarillo",
+                "addressRegion": "TX",
+                "postalCode": "79118",
+                "addressCountry": "US"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "XX.XXXXXX", // Replace with your coordinates
+                "longitude": "XX.XXXXXX"
+              },
+              "openingHours": "Mo-Fr 09:00-17:00", // Replace with your hours
+              "priceRange": "$$",
+              "paymentAccepted": ["Cash", "Credit Card", "Bank Transfer"],
+              "currenciesAccepted": "USD",
+              "sameAs": [
+                "https://www.linkedin.com/in/your-profile", // Replace with your LinkedIn
+                "https://github.com/kwr41230" // Replace with your GitHub
+              ]
+            })
+          }}
+        />
+              "name": "Falcon Labs",
+              "url": "https://falconlabs.tech",
+              "logo": "https://falconlabs.tech/logo.svg",
               "description": "Professional custom web development services with 10+ years experience. Full stack development, e-commerce solutions, and reliable hosting.",
               "founder": {
                 "@type": "Person",
