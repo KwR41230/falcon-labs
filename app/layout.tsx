@@ -115,7 +115,7 @@ export default function RootLayout({
               "paymentAccepted": ["Cash", "Credit Card", "Bank Transfer"],
               "currenciesAccepted": "USD",
               "sameAs": [
-                "https://www.linkedin.com/in/your-profile", // Replace with your LinkedIn
+                "https://www.linkedin.com/in/kevin-rasmussen-a09a8a5b/", // Replace with your LinkedIn
                 "https://github.com/kwr41230" // Replace with your GitHub
               ]
             })
