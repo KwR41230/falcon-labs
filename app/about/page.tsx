@@ -255,6 +255,11 @@ export default function About() {
                   <p className="text-slate-500 text-sm">Experience hosting websites on personal infrastructure and deploying scalable solutions using DigitalOcean VPS with Kubernetes orchestration</p>
                 </div>
                 <div>
+                  <h4 className="text-lg font-semibold text-slate-200">Proxmox & Virtualization</h4>
+                  <p className="text-slate-400">Server Virtualization & Container Management</p>
+                  <p className="text-slate-500 text-sm">Extensive experience with Proxmox VE for enterprise-grade server virtualization, including KVM virtual machines and LXC containers for efficient resource management and isolation</p>
+                </div>
+                <div>
                   <h4 className="text-lg font-semibold text-slate-200">Database Architecture</h4>
                   <p className="text-slate-400">SQL & NoSQL Solutions</p>
                   <p className="text-slate-500 text-sm">Designing and implementing both NoSQL (Firestore) and SQL database solutions for optimal performance and scalability</p>
