@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { useState } from 'react'
+import TestimonialSubmissionForm from '../../components/TestimonialSubmissionForm'
 
 export const metadata: Metadata = {
   title: 'Client Testimonials | Falcon Labs',
@@ -103,8 +104,23 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
+      {/* Testimonial Submission Section */}
+      <section className="py-16 bg-slate-900">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-white mb-4">
+              Share Your Experience
+            </h2>
+            <p className="text-xl text-slate-300">
+              Have you worked with Falcon Labs? We&apos;d love to hear your story!
+            </p>
+          </div>
+          <TestimonialSubmissionForm />
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-slate-800">
+      <section className="py-16 bg-gradient-to-r from-slate-800 to-slate-900">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Join Our Success Stories?</h2>
           <p className="text-xl text-slate-300 mb-8">

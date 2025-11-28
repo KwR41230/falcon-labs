@@ -200,7 +200,7 @@ export default function Contact() {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-semibold text-slate-100">Email</h3>
-                    <p className="text-slate-300">hello@falconlabs.tech</p>
+                    <p className="text-slate-300">kevin@falconlabs.tech</p>
                     <p className="text-sm text-slate-400 mt-1">I respond within 24 hours</p>
                   </div>
                 </div>
