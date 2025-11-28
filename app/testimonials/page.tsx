@@ -21,7 +21,7 @@ export default function TestimonialsPage() {
       name: "Sarah Johnson",
       company: "TechStart Inc.",
       role: "CEO",
-      content: "Falcon Labs transformed our online presence completely. Their e-commerce platform increased our sales by 300% in the first quarter.",
+      content: "Falcon Labs transformed our online presence completely. Their e-commerce platform improved our sales in the first quarter. The custom features they implemented, such as shipping and inventory management, have made a huge difference.",
       rating: 5
     },
     {
