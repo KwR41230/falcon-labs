@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 const packages = {
   basic: {
@@ -50,7 +50,7 @@ export default function InvoiceForm() {
     terms: ''
   })
   const [loading, setLoading] = useState(false)
-  const [message, setMessage] = useState('')
+  const [message, setMessage] = useState<string | React.ReactElement>('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -109,15 +109,38 @@ export default function InvoiceForm() {
 
       const result = await response.json()
       if (response.ok) {
-        setMessage(`${formData.paymentType === 'invoice' ? 'Invoice' : 'Subscription'} created successfully!`)
-        setFormData({ 
+        if (result.type === 'subscription' && result.paymentLinkUrl) {
+          setMessage(
+            <div className="space-y-2">
+              <p className="text-green-500">Subscription setup created successfully!</p>
+              <p className="text-sm text-gray-300">Send this payment link to the client:</p>
+              <a
+                href={result.paymentLinkUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-400 underline break-all text-sm"
+              >
+                {result.paymentLinkUrl}
+              </a>
+              <button
+                onClick={() => navigator.clipboard.writeText(result.paymentLinkUrl)}
+                className="ml-2 px-3 py-1 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded"
+              >
+                Copy Link
+              </button>
+            </div>
+          )
+        } else {
+          setMessage(`${formData.paymentType === 'invoice' ? 'Invoice' : 'Subscription'} created successfully!`)
+        }
+        setFormData({
           paymentType: 'invoice',
-          clientName: '', 
-          clientEmail: '', 
-          package: '', 
-          totalAmount: '', 
-          depositPercent: 50, 
-          description: '', 
+          clientName: '',
+          clientEmail: '',
+          package: '',
+          totalAmount: '',
+          depositPercent: 50,
+          description: '',
           amount: '', 
           dueDate: '', 
           terms: '' 
@@ -279,7 +302,13 @@ export default function InvoiceForm() {
       >
         {loading ? 'Creating...' : `Create ${formData.paymentType === 'invoice' ? 'Invoice' : 'Subscription'}`}
       </button>
-      {message && <p className={`text-sm ${message.includes('successfully') ? 'text-green-500' : 'text-red-500'}`}>{message}</p>}
+      {message && (
+        typeof message === 'string' ? (
+          <p className={`text-sm ${message.includes('successfully') ? 'text-green-500' : 'text-red-500'}`}>{message}</p>
+        ) : (
+          message
+        )
+      )}
     </form>
   )
 }

@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
     })
 
     if (paymentType === 'subscription') {
-      // For subscriptions, create a product and price, then subscribe the customer
+      // For subscriptions, create a product and price, then create a payment link
       const product = await stripe.products.create({
         name: `Maintenance: ${description}`,
         description: terms
@@ -29,15 +29,35 @@ export async function POST(request: NextRequest) {
         }
       })
 
-      const subscription = await stripe.subscriptions.create({
-        customer: customer.id,
-        items: [{
-          price: price.id
+      // Create a payment link for the subscription
+      const paymentLink = await stripe.paymentLinks.create({
+        line_items: [{
+          price: price.id,
+          quantity: 1
         }],
-        description: terms
+        customer_creation: 'always',
+        subscription_data: {
+          metadata: {
+            clientName,
+            clientEmail,
+            description,
+            terms
+          }
+        },
+        after_completion: {
+          type: 'redirect',
+          redirect: {
+            url: `${process.env.NEXTAUTH_URL}/admin?success=subscription_created`
+          }
+        }
       })
 
-      return NextResponse.json({ success: true, subscriptionId: subscription.id, type: 'subscription' })
+      return NextResponse.json({
+        success: true,
+        paymentLinkUrl: paymentLink.url,
+        type: 'subscription',
+        message: 'Payment link created. Send this link to the client to complete subscription setup.'
+      })
     } else {
       // For invoices, create a regular invoice
       const invoice = await stripe.invoices.create({
