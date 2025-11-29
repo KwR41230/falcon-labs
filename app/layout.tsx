@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { ReactNode } from 'react'
+import Link from 'next/link'
 import './globals.css'
+import Header from '../components/Header'
 
 export const metadata: Metadata = {
   title: 'Falcon Labs - Custom Web Development Services & Full Stack Solutions',
@@ -197,7 +199,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-slate-900 text-slate-100 font-sans">{children}</body>
+      <body className="bg-slate-900 text-slate-100 font-sans">
+        <Header />
+        {children}
+      </body>
     </html>
   )
 }

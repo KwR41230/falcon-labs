@@ -1,6 +1,4 @@
 import { Metadata } from 'next'
-import Link from 'next/link'
-import { useState } from 'react'
 import TestimonialSubmissionForm from '../../components/TestimonialSubmissionForm'
 
 export const metadata: Metadata = {
@@ -42,30 +40,6 @@ export default function TestimonialsPage() {
 
   return (
     <div className="min-h-screen">
-      {/* Header */}
-      <header className="bg-slate-800 shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <div className="flex items-center">
-              <Link href="/" className="flex items-center">
-                <img src="/logo.svg" alt="Falcon Labs Logo" className="h-10 w-auto mr-3" />
-                <h1 className="text-3xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
-                  Falcon Labs
-                </h1>
-              </Link>
-            </div>
-            <nav className="hidden md:flex space-x-8">
-              <Link href="/" className="text-slate-200 hover:text-amber-400 transition-colors">Home</Link>
-              <Link href="/work" className="text-slate-200 hover:text-amber-400 transition-colors">Work</Link>
-              <Link href="/pricing" className="text-slate-200 hover:text-amber-400 transition-colors">Pricing</Link>
-              <Link href="/testimonials" className="text-slate-200 hover:text-amber-400 transition-colors">Testimonials</Link>
-              <Link href="/about" className="text-slate-200 hover:text-amber-400 transition-colors">About</Link>
-              <Link href="/contact" className="text-slate-200 hover:text-amber-400 transition-colors">Contact Us</Link>
-            </nav>
-          </div>
-        </div>
-      </header>
-
       {/* Hero Section */}
       <section className="py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
