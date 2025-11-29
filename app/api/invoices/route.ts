@@ -8,7 +8,7 @@ export async function GET() {
     // Fetch both invoices and subscriptions
     const [invoicesResponse, subscriptionsResponse] = await Promise.all([
       stripe.invoices.list({ limit: 10 }),
-      stripe.subscriptions.list({ limit: 10, status: 'all' })
+      stripe.subscriptions.list({ limit: 10, status: 'all', expand: ['data.customer'] })
     ])
 
     console.log('Fetched invoices count:', invoicesResponse.data.length)
@@ -29,7 +29,7 @@ export async function GET() {
     const subscriptionData = subscriptionsResponse.data.map((subscription: any) => ({
       id: subscription.id,
       number: null,
-      customerEmail: subscription.customer && typeof subscription.customer === 'object' && 'email' in subscription.customer ? subscription.customer.email : null,
+      customerEmail: subscription.customer?.email || null,
       amount: subscription.items.data[0]?.price?.unit_amount ? subscription.items.data[0].price.unit_amount / 100 : 0,
       currency: subscription.currency,
       status: subscription.status,

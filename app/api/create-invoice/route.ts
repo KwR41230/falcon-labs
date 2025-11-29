@@ -34,9 +34,7 @@ export async function POST(request: NextRequest) {
         items: [{
           price: price.id
         }],
-        description: terms,
-        collection_method: 'send_invoice',
-        days_until_due: 30
+        description: terms
       })
 
       return NextResponse.json({ success: true, subscriptionId: subscription.id, type: 'subscription' })
