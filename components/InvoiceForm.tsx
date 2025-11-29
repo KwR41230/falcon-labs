@@ -109,21 +109,21 @@ export default function InvoiceForm() {
 
       const result = await response.json()
       if (response.ok) {
-        if (result.type === 'subscription' && result.paymentLinkUrl) {
+        if (result.type === 'subscription' && result.checkoutUrl) {
           setMessage(
             <div className="space-y-2">
-              <p className="text-green-500">Subscription setup created successfully!</p>
-              <p className="text-sm text-gray-300">Send this payment link to the client:</p>
+              <p className="text-green-500">Subscription checkout created successfully!</p>
+              <p className="text-sm text-gray-300">Send this checkout link to the client:</p>
               <a
-                href={result.paymentLinkUrl}
+                href={result.checkoutUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-400 underline break-all text-sm"
               >
-                {result.paymentLinkUrl}
+                {result.checkoutUrl}
               </a>
               <button
-                onClick={() => navigator.clipboard.writeText(result.paymentLinkUrl)}
+                onClick={() => navigator.clipboard.writeText(result.checkoutUrl)}
                 className="ml-2 px-3 py-1 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded"
               >
                 Copy Link

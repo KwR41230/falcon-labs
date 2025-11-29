@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
     })
 
     if (paymentType === 'subscription') {
-      // For subscriptions, create a product and price, then create a payment link
+      // For subscriptions, create a product and price, then create a checkout session
       const product = await stripe.products.create({
         name: `Maintenance: ${description}`,
         description: terms
@@ -29,34 +29,29 @@ export async function POST(request: NextRequest) {
         }
       })
 
-      // Create a payment link for the subscription
-      const paymentLink = await stripe.paymentLinks.create({
+      // Create a checkout session for the subscription
+      const session = await stripe.checkout.sessions.create({
+        customer_email: clientEmail,
         line_items: [{
           price: price.id,
           quantity: 1
         }],
-        customer_creation: 'always',
-        subscription_data: {
-          metadata: {
-            clientName,
-            clientEmail,
-            description,
-            terms
-          }
-        },
-        after_completion: {
-          type: 'redirect',
-          redirect: {
-            url: `${process.env.NEXTAUTH_URL}/admin?success=subscription_created`
-          }
+        mode: 'subscription',
+        success_url: `${process.env.NEXTAUTH_URL}/admin?success=subscription_created&session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${process.env.NEXTAUTH_URL}/admin?canceled=true`,
+        metadata: {
+          clientName,
+          clientEmail,
+          description,
+          terms
         }
       })
 
       return NextResponse.json({
         success: true,
-        paymentLinkUrl: paymentLink.url,
+        checkoutUrl: session.url,
         type: 'subscription',
-        message: 'Payment link created. Send this link to the client to complete subscription setup.'
+        message: 'Checkout session created. Send this link to the client to complete subscription setup.'
       })
     } else {
       // For invoices, create a regular invoice
