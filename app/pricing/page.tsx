@@ -543,13 +543,13 @@ export default function Pricing() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <h4 className="font-semibold text-amber-400 mb-2">When are payments due?</h4>
-                <p className="text-gray-300 text-sm mb-4">Invoices are sent upon milestone completion. Payment is due within 30 days of invoice receipt.</p>
+                <p className="text-gray-300 text-sm mb-4">Invoices are sent upon milestone completion. Payment is due within 15 days of invoice receipt.</p>
 
                 <h4 className="font-semibold text-amber-400 mb-2">What if I need to change scope?</h4>
                 <p className="text-gray-300 text-sm mb-4">Scope changes are handled through change orders with adjusted payment schedules.</p>
 
                 <h4 className="font-semibold text-amber-400 mb-2">Do you offer financing?</h4>
-                <p className="text-gray-300 text-sm">We don&apos;t offer direct financing but can discuss payment plans for qualifying projects.</p>
+                <p className="text-gray-300 text-sm">We don&apos;t offer direct financing but we do offer pay-over-time payment options via Klarna.</p>
               </div>
               <div>
                 <h4 className="font-semibold text-amber-400 mb-2">What about refunds?</h4>
@@ -559,7 +559,7 @@ export default function Pricing() {
                 <p className="text-gray-300 text-sm mb-4">Late payments accrue 1.5% interest per month. Services may be paused after 60 days.</p>
 
                 <h4 className="font-semibold text-amber-400 mb-2">Accepted payment methods?</h4>
-                <p className="text-gray-300 text-sm">Wire transfer, ACH, check, and major credit cards accepted.</p>
+                <p className="text-gray-300 text-sm">ACH, Klarna, and major credit cards accepted.</p>
               </div>
             </div>
           </div>

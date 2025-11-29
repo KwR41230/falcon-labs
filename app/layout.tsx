@@ -3,6 +3,7 @@ import { ReactNode } from 'react'
 import Link from 'next/link'
 import './globals.css'
 import Header from '../components/Header'
+import Providers from './providers'
 
 export const metadata: Metadata = {
   title: 'Falcon Labs - Custom Web Development Services & Full Stack Solutions',
@@ -200,8 +201,10 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-slate-900 text-slate-100 font-sans">
-        <Header />
-        {children}
+        <Providers>
+          <Header />
+          {children}
+        </Providers>
       </body>
     </html>
   )

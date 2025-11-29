@@ -29,6 +29,18 @@
 	- Added phone number field for callbacks
 	- Added professional spam folder reminder in success message
 
+- [x] Add Monthly Maintenance Subscription Support
+	Successfully implemented monthly maintenance subscription support:
+	- Added payment type selector (One-time Invoice vs Monthly Subscription)
+	- Created maintenance packages object with Basic ($99/month) and Professional ($200/month) plans
+	- Made form fields conditional: totalAmount/depositPercent only show for invoices, amount auto-fills for subscriptions
+	- Updated handleChange logic to auto-populate fields based on selected package type
+	- Modified API route to create Stripe subscriptions for maintenance plans
+	- Updated invoice history to display both invoices and subscriptions with type indicators
+	- Enhanced API to fetch both invoices and subscriptions from Stripe
+	- Fixed TypeScript errors and ensured successful compilation
+	- Form now supports creating recurring monthly subscriptions for website maintenance
+
 - [x] Ensure Documentation is Complete
 
 - [x] Customize the Project
