@@ -7,42 +7,29 @@ import SplitText from '../components/SplitText'
 export default function Home() {
   const [expandedTech, setExpandedTech] = useState<string | null>(null)
   const [visibleCards, setVisibleCards] = useState<Set<string>>(new Set())
-  const cardRefs = useRef<Map<string, HTMLDivElement>>(new Map())
 
   const toggleTechExpansion = (techName: string) => {
     setExpandedTech(expandedTech === techName ? null : techName)
   }
 
+  // Simple viewport detection for animations
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const techName = entry.target.getAttribute('data-tech')
-            if (techName) {
-              setVisibleCards(prev => new Set(prev).add(techName))
-            }
-          }
-        })
-      },
-      { threshold: 0.1, rootMargin: '-50px' }
-    )
-
-    // Observe all cards
-    cardRefs.current.forEach((card) => {
-      observer.observe(card)
-    })
-
-    return () => observer.disconnect()
-  }, [])
-
-  const setCardRef = (techName: string) => (el: HTMLDivElement | null) => {
-    if (el) {
-      cardRefs.current.set(techName, el)
-    } else {
-      cardRefs.current.delete(techName)
+    const handleScroll = () => {
+      const cards = document.querySelectorAll('[data-tech]')
+      cards.forEach((card) => {
+        const rect = card.getBoundingClientRect()
+        const techName = card.getAttribute('data-tech')
+        if (techName && rect.top < window.innerHeight * 0.8 && rect.bottom > 0) {
+          setVisibleCards(prev => new Set(prev).add(techName))
+        }
+      })
     }
-  }
+
+    // Check on mount and scroll
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const techDetails = {
     'React': {
@@ -167,7 +154,6 @@ export default function Home() {
             {Object.entries(techDetails).map(([techName, details]) => (
               <div
                 key={techName}
-                ref={setCardRef(techName)}
                 data-tech={techName}
                 className={`bg-slate-800 rounded-lg border border-slate-600 hover:border-amber-400 transition-all duration-300 cursor-pointer overflow-hidden ${
                   visibleCards.has(techName) ? 'animate-fade-in-up' : 'opacity-0'

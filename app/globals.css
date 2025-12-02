@@ -43,7 +43,8 @@
 }
 
 .animate-fade-in-up {
-  animation: fade-in-up 1.2s ease-out;
+  animation: fade-in-up 1.2s ease-out forwards;
+  opacity: 0;
 }
 
 .line-clamp-3 {
