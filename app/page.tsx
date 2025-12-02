@@ -1,13 +1,47 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import SplitText from '../components/SplitText'
 
 export default function Home() {
   const [expandedTech, setExpandedTech] = useState<string | null>(null)
+  const [visibleCards, setVisibleCards] = useState<Set<string>>(new Set())
+  const cardRefs = useRef<Map<string, HTMLDivElement>>(new Map())
 
   const toggleTechExpansion = (techName: string) => {
     setExpandedTech(expandedTech === techName ? null : techName)
+  }
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const techName = entry.target.getAttribute('data-tech')
+            if (techName) {
+              setVisibleCards(prev => new Set(prev).add(techName))
+            }
+          }
+        })
+      },
+      { threshold: 0.1, rootMargin: '-50px' }
+    )
+
+    // Observe all cards
+    cardRefs.current.forEach((card) => {
+      observer.observe(card)
+    })
+
+    return () => observer.disconnect()
+  }, [])
+
+  const setCardRef = (techName: string) => (el: HTMLDivElement | null) => {
+    if (el) {
+      cardRefs.current.set(techName, el)
+    } else {
+      cardRefs.current.delete(techName)
+    }
   }
 
   const techDetails = {
@@ -62,9 +96,10 @@ export default function Home() {
           }
         `}</style>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-amber-400 via-orange-500 to-amber-400 bg-[length:200%_200%] animate-gradient-shift bg-clip-text text-transparent">
-            Empowering Businesses with Cutting-Edge Web Solutions
-          </h2>
+          <SplitText
+            text="Empowering Businesses with Cutting-Edge Web Solutions"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+          />
           <p className="text-xl text-slate-300 mb-8">
             Your trusted partner in full stack web development and hosting.
           </p>
@@ -132,7 +167,11 @@ export default function Home() {
             {Object.entries(techDetails).map(([techName, details]) => (
               <div
                 key={techName}
-                className="bg-slate-800 rounded-lg border border-slate-600 hover:border-amber-400 transition-all duration-300 cursor-pointer overflow-hidden"
+                ref={setCardRef(techName)}
+                data-tech={techName}
+                className={`bg-slate-800 rounded-lg border border-slate-600 hover:border-amber-400 transition-all duration-300 cursor-pointer overflow-hidden ${
+                  visibleCards.has(techName) ? 'animate-fade-in-up' : 'opacity-0'
+                }`}
                 onClick={() => toggleTechExpansion(techName)}
               >
                 <div className="p-6 text-center">

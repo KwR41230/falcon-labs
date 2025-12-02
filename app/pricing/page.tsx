@@ -211,8 +211,17 @@ export default function Pricing() {
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Keep your website secure, fast, and up-to-date with our flexible maintenance packages.
-              Choose the level that fits your needs and budget.
+              While you manage your hosting, payments, and third-party services, we provide expert ongoing support
+              and peace of mind—so you can focus on growing your business.
             </p>
+            <div className="mt-6 p-4 bg-gray-700 rounded-lg border border-amber-400">
+              <p className="text-amber-400 font-semibold mb-2">💡 Why Choose Maintenance?</p>
+              <p className="text-gray-300 text-sm">
+                Think of it as website insurance. We handle proactive monitoring, updates, and fixes,
+                preventing costly downtime or security issues. Clients manage their own third-party accounts
+                (like Linode, Stripe, MailerSend) for cost control, while we ensure seamless integration and performance.
+              </p>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -321,6 +330,38 @@ export default function Pricing() {
           </div>
         </div>
       </section>
+
+      {/*
+      <section className="py-16 bg-gray-900">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+            Prefer a <span className="text-amber-400">Hands-Off Experience</span>?
+          </h2>
+          <p className="text-lg text-gray-300 mb-8">
+            For clients who want us to handle everything, including hosting setup and management.
+          </p>
+          <div className="bg-gray-800 rounded-lg p-6 border border-amber-400">
+            <h3 className="text-xl font-semibold text-amber-400 mb-4">Managed Hosting Add-On</h3>
+            <div className="text-3xl font-bold text-white mb-2">$150<span className="text-lg font-normal">/month</span></div>
+            <p className="text-gray-400 mb-4">Added to any maintenance plan</p>
+            <ul className="text-gray-300 space-y-2 mb-6">
+              <li>• Server setup and configuration (Ubuntu/Linode)</li>
+              <li>• SSL certificate management</li>
+              <li>• Domain and DNS management</li>
+              <li>• Third-party service integration support</li>
+              <li>• 24/7 uptime monitoring and alerts</li>
+              <li>• Emergency server maintenance</li>
+            </ul>
+            <p className="text-sm text-gray-400 mb-4">
+              *Client still owns their domain and third-party accounts; we manage the technical setup.
+            </p>
+            <Link href="/contact" className="inline-block bg-amber-400 hover:bg-amber-300 text-gray-900 font-semibold py-2 px-6 rounded-lg transition-colors duration-300">
+              Learn More
+            </Link>
+          </div>
+        </div>
+      </section>
+      */}
 
       {/* Why Choose Us Section */}
       <section className="py-20 bg-gray-900">
