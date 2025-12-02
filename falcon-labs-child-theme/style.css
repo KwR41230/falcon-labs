@@ -1,0 +1,399 @@
+/*
+Theme Name: Falcon Labs Child
+Description: Child theme for Astra with Falcon Labs branding
+Author: Falcon Labs
+Template: astra
+Version: 1.0.0
+*/
+
+/* Import parent theme styles */
+@import url("../astra/style.css");
+
+/* Custom Falcon Labs Branding */
+:root {
+  --falcon-dark-bg: #0f172a;    /* slate-800 */
+  --falcon-darker-bg: #020617;  /* slate-950 */
+  --falcon-text: #e2e8f0;       /* slate-200 */
+  --falcon-text-light: #f8fafc; /* slate-50 */
+  --falcon-accent: #fbbf24;     /* amber-400 */
+  --falcon-accent-hover: #f59e0b; /* amber-500 */
+  --falcon-orange: #ea580c;     /* orange-600 */
+}
+
+/* Body and HTML */
+body {
+  background-color: var(--falcon-dark-bg) !important;
+  color: var(--falcon-text) !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--falcon-text-light) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+}
+
+/* Links */
+a {
+  color: var(--falcon-accent) !important;
+  transition: color 0.3s ease !important;
+}
+
+a:hover {
+  color: var(--falcon-accent-hover) !important;
+}
+
+/* Header - More specific selectors */
+.site-header,
+header.site-header,
+.ast-header-break-point .site-header {
+  background-color: #1e293b !important; /* slate-700 */
+  border-bottom: 1px solid #334155 !important; /* slate-600 */
+}
+
+/* Astra specific header classes */
+.ast-primary-header-bar,
+.main-header-bar {
+  background-color: #1e293b !important;
+}
+
+/* Navigation menu */
+.main-navigation a,
+.ast-masthead .main-navigation a {
+  color: var(--falcon-text) !important;
+}
+
+.main-navigation a:hover,
+.ast-masthead .main-navigation a:hover {
+  color: var(--falcon-accent) !important;
+}
+
+/* Navigation underline animation - more specific */
+.main-navigation a::after,
+.ast-masthead .main-navigation a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--falcon-accent);
+  transition: width 0.3s ease;
+}
+
+.main-navigation a:hover::after,
+.ast-masthead .main-navigation a:hover::after {
+  width: 100%;
+}
+
+/* Buttons */
+.btn, .button, input[type="submit"], button {
+  background: linear-gradient(135deg, var(--falcon-accent) 0%, var(--falcon-orange) 100%) !important;
+  color: var(--falcon-dark-bg) !important;
+  border: none !important;
+  border-radius: 0.5rem !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn:hover, .button:hover, input[type="submit"]:hover, button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 25px rgba(251, 191, 36, 0.3) !important;
+}
+
+/* Cards and content areas */
+.entry-content, .wp-block-group, article {
+  background-color: #1e293b !important; /* slate-700 */
+  border-radius: 0.75rem !important;
+  padding: 2rem !important;
+  margin-bottom: 2rem !important;
+}
+
+/* Footer */
+.site-footer {
+  background-color: var(--falcon-dark-bg) !important;
+  border-top: 1px solid #334155 !important;
+}
+
+/* Forms */
+input, textarea, select {
+  background-color: #374151 !important; /* gray-700 */
+  border: 1px solid #4b5563 !important; /* gray-600 */
+  color: var(--falcon-text) !important;
+  border-radius: 0.5rem !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--falcon-accent) !important;
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.1) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .entry-content, .wp-block-group, article {
+    padding: 1rem !important;
+  }
+
+  /* Ensure dark backgrounds on mobile/tablet */
+  body {
+    background-color: var(--falcon-dark-bg) !important;
+  }
+
+  .site-content,
+  .blog .site-content,
+  .archive .site-content,
+  .search .site-content {
+    background-color: var(--falcon-dark-bg) !important;
+  }
+
+  .site-header,
+  header.site-header,
+  .ast-header-break-point .site-header {
+    background-color: #1e293b !important;
+  }
+
+  .entry-content,
+  .post,
+  .hentry,
+  .blog .post,
+  .archive .post {
+    background-color: #1e293b !important;
+  }
+
+  .site-footer {
+    background-color: var(--falcon-dark-bg) !important;
+  }
+}
+
+/* Force theme application on all pages */
+body.page,
+body.single,
+body.archive,
+body.search,
+body.home,
+body.blog {
+  background-color: var(--falcon-dark-bg) !important;
+  color: var(--falcon-text) !important;
+}
+
+/* Blog post listings - ensure dark background */
+.blog .site-content,
+.archive .site-content,
+.search .site-content {
+  background-color: var(--falcon-dark-bg) !important;
+}
+
+/* Blog post preview cards */
+.entry-content,
+.post,
+.hentry,
+.blog .post,
+.archive .post {
+  background-color: #1e293b !important;
+  color: var(--falcon-text) !important;
+  border-radius: 0.75rem !important;
+  padding: 2rem !important;
+  margin-bottom: 2rem !important;
+}
+
+/* Blog post titles */
+.entry-title,
+.entry-title a,
+.blog .entry-title,
+.blog .entry-title a,
+.archive .entry-title,
+.archive .entry-title a {
+  color: var(--falcon-text-light) !important;
+}
+
+.entry-title a:hover,
+.blog .entry-title a:hover,
+.archive .entry-title a:hover {
+  color: var(--falcon-accent) !important;
+}
+
+/* Blog post meta (date, author, etc.) */
+.entry-meta,
+.entry-meta a,
+.blog .entry-meta,
+.blog .entry-meta a,
+.archive .entry-meta,
+.archive .entry-meta a {
+  color: var(--falcon-text) !important;
+}
+
+.entry-meta a:hover,
+.blog .entry-meta a:hover,
+.archive .entry-meta a:hover {
+  color: var(--falcon-accent) !important;
+}
+
+/* Blog post excerpt/content */
+.entry-content p,
+.blog .entry-content p,
+.archive .entry-content p,
+.entry-summary,
+.blog .entry-summary,
+.archive .entry-summary {
+  color: var(--falcon-text) !important;
+}
+
+/* Hide empty buttons and button-like elements */
+.btn:empty,
+.button:empty,
+a:empty,
+.read-more:empty,
+.more-link:empty,
+.ast-button:empty,
+.wp-block-button__link:empty {
+  display: none !important;
+}
+
+/* Hide elements that look like buttons but are empty */
+div[style*="background"]:empty,
+span[style*="background"]:empty,
+p[style*="border"]:empty,
+div[style*="border"]:empty {
+  display: none !important;
+}
+
+/* Astra specific empty elements */
+.ast-button-wrap:empty,
+.ast-button:empty {
+  display: none !important;
+}
+
+/* Hide any element with button classes but no content */
+[class*="button"]:empty,
+[class*="btn"]:empty {
+  display: none !important;
+}
+
+/* Hide empty entry-content divs - more specific */
+.entry-content.clear:empty,
+div.entry-content[itemprop="text"]:empty,
+.blog .entry-content:empty,
+.archive .entry-content:empty {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Force hide empty content areas */
+.post .entry-content:empty,
+.hentry .entry-content:empty {
+  display: none !important;
+}
+
+/* Style read more buttons - high contrast */
+.read-more,
+.more-link,
+.read-more a,
+.more-link a,
+a.read-more,
+a.more-link {
+  background-color: #fbbf24 !important;
+  color: #0f172a !important; /* Dark text on amber background */
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 0.5rem !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  display: inline-block !important;
+  margin-top: 1rem !important;
+  border: 2px solid #fbbf24 !important;
+  font-size: 1rem !important;
+  line-height: 1.5 !important;
+}
+
+.read-more:hover,
+.more-link:hover,
+.read-more a:hover,
+.more-link a:hover {
+  background-color: #f59e0b !important;
+  border-color: #f59e0b !important;
+  color: #0f172a !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3) !important;
+}
+
+/* Hide empty content areas */
+[itemprop="text"]:empty,
+.clear:empty {
+  display: none !important;
+}
+
+/* Specific rule for the problematic empty div */
+.entry-content.clear[itemprop="text"]:empty {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Style read more links properly */
+.read-more,
+.more-link,
+.read-more a,
+.more-link a {
+  background-color: var(--falcon-accent) !important;
+  color: var(--falcon-dark-bg) !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 0.5rem !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  display: inline-block !important;
+  margin-top: 1rem !important;
+}
+
+.read-more:hover,
+.more-link:hover,
+.read-more a:hover,
+.more-link a:hover {
+  background-color: var(--falcon-accent-hover) !important;
+  color: var(--falcon-dark-bg) !important;
+}
+
+/* Style post navigation links */
+.post-navigation,
+.nav-links {
+  background-color: #1e293b !important;
+  border-radius: 0.5rem !important;
+  padding: 1rem !important;
+  margin: 2rem 0 !important;
+}
+
+.post-navigation a,
+.nav-links a {
+  color: var(--falcon-accent) !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  transition: color 0.3s ease !important;
+}
+
+.post-navigation a:hover,
+.nav-links a:hover {
+  color: var(--falcon-accent-hover) !important;
+}
+
+/* Style breadcrumbs if enabled */
+.ast-breadcrumbs-wrapper,
+.breadcrumbs {
+  background-color: #1e293b !important;
+  border-radius: 0.5rem !important;
+  padding: 1rem !important;
+  margin: 1rem 0 !important;
+}
+
+.ast-breadcrumbs-wrapper a,
+.breadcrumbs a {
+  color: var(--falcon-accent) !important;
+}
+
+.ast-breadcrumbs-wrapper .current,
+.breadcrumbs .current {
+  color: var(--falcon-text) !important;
+}
