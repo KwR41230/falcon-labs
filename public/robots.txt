@@ -36,4 +36,4 @@ User-agent: meta-externalagent
 Disallow: /
 
 # Sitemap location - Replace with your actual domain
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://falconlabs.tech/sitemap.xml
