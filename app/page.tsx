@@ -61,7 +61,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-slate-800 to-slate-900 py-20 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-slate-800 to-slate-900 py-20 relative">
         {/* Animated Background Pattern */}
         <div className="absolute inset-0 opacity-25">
           <div className="absolute inset-0" style={{
@@ -82,7 +82,7 @@ export default function Home() {
             }
           }
         `}</style>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 py-4">
           <SplitText
             text="Empowering Businesses with Cutting-Edge Web Solutions"
             className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"

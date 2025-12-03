@@ -19,11 +19,15 @@ const charVariants = {
 export default function SplitText({ text, className = '' }: SplitTextProps) {
   const splitText = (text: string) => {
     return text.split(' ').map((word, wordIndex) => (
-      <span key={wordIndex} className="word inline-block mr-2">
+      <span key={wordIndex} className="word inline-block mr-3 align-baseline">
         {word.split('').map((char, charIndex) => (
           <motion.span
             key={charIndex}
             className="char inline-block bg-gradient-to-r from-amber-400 via-orange-500 to-amber-400 bg-[length:200%_200%] animate-gradient-shift bg-clip-text text-transparent"
+            style={{
+              lineHeight: '1.2',
+              paddingBottom: '2px'
+            }}
             variants={charVariants}
             initial="hidden"
             animate="visible"
@@ -41,7 +45,7 @@ export default function SplitText({ text, className = '' }: SplitTextProps) {
   };
 
   return (
-    <div className={`${className} break-normal`}>
+    <div className={`${className} break-normal leading-tight md:leading-relaxed`}>
       {splitText(text)}
     </div>
   );
