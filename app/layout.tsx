@@ -89,6 +89,7 @@ export default function RootLayout({
         <link rel="icon" href="/logo.svg" type="image/svg+xml" />
         <link rel="icon" href="/logo.svg" sizes="any" />
         <link rel="apple-touch-icon" href="/logo.svg" />
+        <meta name="robots" content="noai, noimageai" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
