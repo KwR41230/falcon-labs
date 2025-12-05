@@ -3,6 +3,7 @@ import { ReactNode } from 'react'
 import Link from 'next/link'
 import './globals.css'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 import Providers from './providers'
 
 export const metadata: Metadata = {
@@ -205,6 +206,7 @@ export default function RootLayout({
         <Providers>
           <Header />
           {children}
+          <Footer />
         </Providers>
       </body>
     </html>
