@@ -397,3 +397,14 @@ a.more-link {
 .breadcrumbs .current {
   color: var(--falcon-text) !important;
 }
+
+/* Custom styles for blog images */
+.float-right-founder {
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.float-right-founder img {
+  border-radius: 40px;
+}

@@ -23,10 +23,10 @@ export default function TestimonialsPage() {
       rating: 5
     },
     {
-      name: "Mike Chen",
-      company: "Local Fitness Pro",
+      name: "John White",
+      company: "Whites Auto Body Shop",
       role: "Owner",
-      content: "Kevin delivered exactly what we needed - a fast, professional website that converts visitors into clients. Highly recommend!",
+      content: "Kevin delivered exactly what we needed - a fast, professional website that converts visitors into clients. Our website now allows customer to seamlessly connect with us and has generated more leads and business. We couldn't be happier with Falcon Labs! Highly recommend!",
       rating: 5
     },
     {
